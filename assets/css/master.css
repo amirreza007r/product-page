@@ -1,0 +1,178 @@
+:root {
+    --primary-color: hsl(26, 100%, 55%);
+    --secondary-color: hsl(25, 100%, 94%);
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Kumbh Sans", sans-serif !important;
+}
+/* nav  */
+.navbar-container {
+    height: 70px;
+}
+.nav-right :first-child {
+    cursor: pointer;
+}
+.list-container {
+    display: none;
+}
+
+.offcanvas-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 3;
+}
+
+.offcanvas-content {
+    padding: 20px;
+}
+
+.offcanvas-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.offcanvas-menu li {
+    padding: 10px;
+}
+.offcanvas-menu a {
+    color: black;
+}
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+/* swiper  */
+
+.swiper-slide {
+    aspect-ratio: 1.3;
+}
+
+.swiper-wrapper img {
+    width: 100%; /* Ensure the image doesn't exceed the wrapper's width */
+    height: 100%; /* Ensure the image doesn't exceed the wrapper's height */
+    object-fit: cover; /* Maintain the aspect ratio and cover the entire wrapper */
+}
+.swiper-button-next::after,
+.swiper-rtl .swiper-button-prev::after {
+    content: "" !important;
+}
+.swiper-button-next {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+}
+
+.swiper-button-prev::after,
+.swiper-rtl .swiper-button-next::after {
+    content: "" !important;
+}
+.swiper-button-prev {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+}
+/* .swiper2 {
+    display: none;
+} */
+/* content   */
+.content-container {
+    margin: 0 10%;
+}
+.content-container p {
+    margin-bottom: 0.3rem;
+    color: var(--primary-color);
+}
+.counter {
+    max-width: 300px;
+    height: 45px;
+    background-color: hsl(223, 64%, 98%);
+}
+.add-cart {
+    max-width: 300px;
+    height: 45px;
+    color: white;
+    background-color: var(--primary-color);
+    /* position: relative; */
+}
+.add-cart p {
+    color: white;
+}
+.add-cart div svg {
+    margin-bottom: 0.5rem;
+}
+.add-cart:hover {
+    cursor: pointer;
+    user-select: none;
+    opacity: 80%;
+}
+.add-cart:active {
+    opacity: 100%;
+    transition: 100ms;
+}
+#roast {
+    background-color: #1bbd06;
+}
+@media only screen and (min-width: 768px) {
+    /* nav  */
+    .hamburger {
+        display: none;
+    }
+    .list-container {
+        display: block;
+    }
+    .list-container ul li a {
+        color: gray;
+    }
+    /* swiper  */
+    .mySwiper {
+        height: 80%;
+        width: 100%;
+    }
+
+    .mySwiper2 {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+
+    .mySwiper2 .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+    .mySwiper2 .swiper-slide-thumb-active {
+        opacity: 1;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

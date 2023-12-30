@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>E-commerce product page</title>
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/master.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-ltr/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="./assets/vendor/swiper/swiper-bundle.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <!-- fonts  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- nav section -->
+  <header>
+    <div class="container">
+      <div class="navbar-container container-fluid">
+        <div class="d-flex justify-content-between align-items-center h-100">
+          <div class="d-flex nav-left gap-3">
+            <div class="hamburger" onclick="toggleMenu()">
+              <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd" />
+            </div>
+            <div class="d-flex gap-4">
+              <div>
+                <svg width="138" height="20" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.217 20c4.761 0 7.519-.753 7.519-4.606 0-3.4-3.38-4.172-6.66-4.682l-.56-.085-.279-.041-.35-.053c-2.7-.405-3.18-.788-3.18-1.471 0-.478.49-1.331 2.843-1.331 2.455 0 3.493.647 3.493 1.87v.134h4.281v-.133c0-2.389-1.35-5.238-7.774-5.238-5.952 0-7.201 2.584-7.201 4.752 0 3.097 2.763 4.086 7.223 4.675.21.028.433.054.659.081 1.669.197 3.172.42 3.172 1.585 0 1.01-1.615 1.222-3.298 1.222-2.797 0-3.784-.593-3.784-1.92v-.134H.002L0 14.926v.317c.008.79.118 1.913 1.057 2.862C2.303 19.362 4.712 20 8.217 20Zm13.21 0v-7.49c0-2.104.547-4.423 4.176-4.423 3.915 0 3.778 2.777 3.768 4.042V20h4.18v-7.768c0-2.264-.176-7.766-6.732-7.766-2.778 0-4.192.911-5.195 2.28h-.197V4.467H17.22V20h4.207Zm21.959 0c5.094 0 7.787-2.07 8.217-5.405H47.53c-.386 1.02-1.63 1.72-4.143 1.72-2.721 0-3.962-1.03-4.25-3.106h12.527c.24-2.13-.029-5.417-3.026-7.44v.005c-1.312-.915-3.056-1.465-5.251-1.465-5.24 0-8.336 2.772-8.336 7.845 0 5.17 3.02 7.846 8.336 7.846Zm4.099-9.574h-8.188c.486-1.574 1.764-2.431 4.089-2.431 2.994 0 3.755 1.267 4.099 2.431ZM70.499 20V4.457H66.29V6.74h-.176c-1.053-1.377-2.809-2.283-5.677-2.283-6.433 0-7.225 5.293-7.253 7.635v.137c0 2.092.732 7.771 7.241 7.771 2.914 0 4.684-.818 5.734-2.169h.131V20H70.5Zm-8.854-3.623c-3.996 0-4.447-3.032-4.447-4.148 0-1.21.426-4.148 4.455-4.148 3.631 0 4.374 2.044 4.374 4.148 0 2.35-.742 4.148-4.382 4.148ZM88.826 20l-6.529-9.045 6.588-6.488h-5.827l-6.836 6.756V0h-4.187v19.954h4.187V16.94l3.02-2.976L83.6 20h5.226Zm9.9 0c5.094 0 7.786-2.07 8.217-5.405h-4.074c-.387 1.02-1.63 1.72-4.143 1.72-2.721 0-3.962-1.03-4.25-3.106h12.527c.24-2.13-.029-5.417-3.026-7.44v.005c-1.312-.915-3.057-1.465-5.251-1.465-5.24 0-8.336 2.772-8.336 7.845 0 5.17 3.02 7.846 8.336 7.846Zm4.098-9.574h-8.187c.485-1.574 1.763-2.431 4.089-2.431 2.994 0 3.755 1.267 4.098 2.431ZM112.76 20v-6.97c0-2.103.931-4.542 4.05-4.542 1.33 0 2.393.236 2.785.346l.67-3.976c-.728-.16-1.626-.392-2.757-.392-2.665 0-3.622.794-4.486 2.282h-.262V4.466h-4.21V20h4.21Zm17.221 0c4.761 0 7.519-.753 7.519-4.606 0-3.4-3.38-4.172-6.66-4.682l-.56-.085-.279-.041-.349-.053c-2.701-.405-3.181-.788-3.181-1.471 0-.478.49-1.331 2.843-1.331 2.455 0 3.493.647 3.493 1.87v.134h4.282v-.133c0-2.389-1.35-5.238-7.775-5.238-5.952 0-7.201 2.584-7.201 4.752 0 3.097 2.763 4.086 7.224 4.675.21.028.432.054.658.081 1.669.197 3.172.42 3.172 1.585 0 1.01-1.615 1.222-3.298 1.222-2.796 0-3.784-.593-3.784-1.92v-.134h-4.319l-.001.301v.317c.008.79.117 1.913 1.056 2.862 1.246 1.257 3.655 1.895 7.16 1.895Z"
+                    fill="#1D2026" fill-rule="nonzero" />
+                </svg>
+              </div>
+              <div class="list-container">
+                <ul class="d-flex list-unstyled gap-5 align-items-center pt-1">
+                  <li><a href="#home" class="text-decoration-none">Home</a></li>
+                  <li><a href="#about" class="text-decoration-none">About</a></li>
+                  <li><a href="#services" class="text-decoration-none">Services</a></li>
+                  <li><a href="#contact" class="text-decoration-none">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            </svg>
+          </div>
+          <div class="d-flex nav-right  gap-4">
+            <div><svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                  fill="#69707D" fill-rule="nonzero" />
+              </svg></div>
+            <div class="avatar-container"><img width="25" height="25" src="./images/image-avatar.png"
+                alt="image-avatar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Offcanvas menu -->
+    <div class="offcanvas-menu" id="offcanvasMenu">
+      <ul>
+        <li><a href="#home" class="text-decoration-none">Home</a></li>
+        <li><a href="#about" class="text-decoration-none">About</a></li>
+        <li><a href="#services" class="text-decoration-none">Services</a></li>
+        <li><a href="#contact" class="text-decoration-none">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Swiper -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="swiper mySwiper">
+
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide"><img src="./images/image-product-1.jpg" alt="" srcset=""></div>
+            <div class="swiper-slide"><img src="./images/image-product-2.jpg" alt="" srcset=""></div>
+            <div class="swiper-slide"><img src="./images/image-product-3.jpg" alt="" srcset=""></div>
+            <div class="swiper-slide"><img src="./images/image-product-4.jpg" alt="" srcset=""></div>
+
+          </div>
+          <div class="swiper-button-next rounded-pill"><img src="/images/icon-next.svg" alt="next button" srcset="">
+          </div>
+          <div class="swiper-button-prev rounded-pill"><img src="./images/icon-previous.svg" alt="previous button"
+              srcset=""></div>
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper2 mt-2">
+          <div class="swiper-wrapper swiper2">
+            <div class="swiper-slide">
+              <img src="./images/image-product-1.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/image-product-2.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/image-product-3.jpg" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/image-product-4.jpg" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+        <div class="content-container">
+          <p class="my-3">Sneaker Company</p>
+          <div class="mb-3">
+            <h2 class="fw-bold">Fall Limited Edition Sneakers</h2>
+          </div>
+          <div>
+            <p class="text-muted">These low-profile sneakers are your perfect casual wear companion. Featuring a
+              durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+          </div>
+          <!-- buy-section -->
+          <section class="mt-4">
+            <div class="buy-container">
+              <div class="pricing-section d-flex justify-content-between">
+                <div class="current-price d-flex gap-3">
+                  <h2><strong>$125.00</strong></h2>
+                  <h5><span class="badge bg-secondary">50%</span></h5>
+                </div>
+                <div class="original-price">
+                  <p class="text-muted fw-bold"><del>$250.00</del></p>
+                </div>
+              </div>
+              <div class="counter mt-3 rounded d-flex justify-content-between">
+                <div class="btn px-4 dec"><svg width="12" height="4" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                      <path
+                        d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+                        id="a" />
+                    </defs>
+                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
+                  </svg></div>
+                <h1 id="num">0</h1>
+                <div class="btn px-4 inc"><svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                      <path
+                        d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                        id="b" />
+                    </defs>
+                    <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b" />
+                  </svg></div>
+
+
+              </div>
+              <div
+                class="add-cart linkButton reset my-3 rounded d-flex justify-content-center align-items-center gap-3">
+                <div><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1"
+                    width="18" height="16">
+
+                    <g transform="matrix(0.8181819 0 0 0.8000001 0 0)">
+                      <path
+                        d="M20.925 3.641L3.863 3.641L3.61 0.816C 3.5685654 0.35378605 3.1810672 -0.00029963255 2.717 0L2.717 0L0.897 0C 0.57689 0 0.28109616 0.1707766 0.12104118 0.44800004C -0.039013743 0.7252234 -0.039013743 1.0667768 0.12104124 1.3440001C 0.28109628 1.6212234 0.57689 1.792 0.897 1.792L0.897 1.792L1.8970001 1.792L2.928 13.275C 3.001 14.103 3.448 15.000999 4.219 15.611C 2.83 17.385 4.099 20 6.359 20C 8.234 20 9.556 18.13 8.913 16.358L8.913 16.358L13.818001 16.358C 13.176001 18.128 14.495001 20 16.373001 20C 17.872871 19.998344 19.088345 18.782871 19.09 17.283C 19.088346 15.783129 17.872871 14.567655 16.373001 14.566001L16.373001 14.566001L6.365 14.566001C 5.684 14.566001 5.0909996 14.156001 4.835 13.557001L4.835 13.557001L19.156 12.715001C 19.547037 12.692178 19.877924 12.417992 19.973 12.038001L19.973 12.038001L21.793999 4.755001C 21.86078 4.4871454 21.800508 4.203459 21.630594 3.985891C 21.460682 3.7683234 21.200052 3.6411104 20.923998 3.6410012L20.923998 3.6410012L20.925 3.641zM6.358 18.208C 5.8638444 18.18502 5.475018 17.77769 5.475018 17.283C 5.475018 16.788311 5.8638444 16.380981 6.358 16.358C 6.852155 16.380981 7.2409816 16.788311 7.2409816 17.283C 7.2409816 17.77769 6.852155 18.18502 6.358 18.208zM16.373001 18.208C 15.878845 18.18502 15.49002 17.77769 15.49002 17.283C 15.49002 16.788311 15.878845 16.380981 16.373001 16.358C 16.867157 16.380981 17.255983 16.788311 17.255983 17.283C 17.255983 17.77769 16.867157 18.18502 16.373001 18.208zM18.394001 10.965L4.594001 11.775001L4.0240006 5.4340005L19.777 5.4340005L18.394001 10.964001z"
+                        stroke="none" fill="white" fill-rule="nonzero" />
+                    </g>
+                  </svg></div>
+                <div>
+                  <p><strong>Add to cart</strong></p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class=" d-flex justify-content-center rounded" id="roast"></div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- product content -->
+
+
+
+
+
+
+
+  </div>
+
+  <!-- Collections
+  Men
+  Women
+  About
+  Contact
+
+  Sneaker Company
+
+  Fall Limited Edition Sneakers
+
+  These low-profile sneakers are your perfect casual wear companion. Featuring a 
+  durable rubber outer sole, they’ll withstand everything the weather can offer.
+
+  $125.00
+  50%
+  $250.00
+
+  0
+  Add to cart -->
+
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/vendor/bootstrap-ltr/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      toastr.options.timeOut = 1500; // 1.5s
+      toastr.info('Page Loaded!');
+      $('.linkButton').click(function () {
+        toastr.success(`items addded to cart`);
+      });
+    });
+  </script>
+</body>
+
+</html>
